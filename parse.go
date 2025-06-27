@@ -156,7 +156,11 @@ func Parse(r io.Reader) (*NZB, error) {
     // have been processed
     // xNZB (XML NZB) Files should be completely empty
     if len(x.Files) > 0 {
-        return nil, fmt.Errorf("not all file(s) where processed into fileset(s)")
+	var unprocessed []string
+	for _, f := range x.Files {
+	    unprocessed = append(unprocessed, f.Filename)
+	}
+        return nil, fmt.Errorf("not all file(s) where processed into fileset(s): %v", unprocessed)
     }
 
     // Delete Xml NZB
