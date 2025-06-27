@@ -9,7 +9,7 @@ import (
 
 var (
     subjectName             = regexp.MustCompile(`^([^-]*)`)
-    subjectFilenameRegex    = regexp.MustCompile(`"([^"]*)"`)
+    subjectFilenameRegex    = regexp.MustCompile(`([^\s"]+\.[a-zA-Z0-9]+)`)
     subjectPartsRegex       = regexp.MustCompile(`\[([0-9]+)\/([0-9]+)\]`)
     subjectYEncPartsRegex   = regexp.MustCompile(`\(([0-9]+)\/([0-9]+)\)`)
 )
