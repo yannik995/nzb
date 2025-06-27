@@ -130,7 +130,7 @@ func Parse(r io.Reader) (*NZB, error) {
 
                 // Check fileset name (previous generated prefix)
                 // against first part of filename
-                if strings.HasPrefix(f.Filename, fs.Name) {
+                if strings.HasPrefix(strings.ToLower(f.Filename), strings.ToLower(fs.Name)) {
                     // Current file belongs to this FileSet
                     fs.addFile(f)
 
